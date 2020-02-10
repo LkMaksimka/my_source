@@ -16,13 +16,13 @@
 		<Metadata name="CommonPicture.Скрепка" id="6e32ba03-5399-4613-a775-6e39ac3c25f5" configVersion="546ba12e2c07daa11a446fd6a839343f64567e9b"/>
 		<Metadata name="CommonPicture.СледующийБаннер" id="911228a4-7356-4c3f-aefc-1d83e2f392f2" configVersion="842f3e6af24b94049ea0be9b899514f31c7ab2c3"/>
 		<Metadata name="CommonPicture.СостоянияДокумента" id="55b01370-ef26-421e-ae2d-2b5215e87430" configVersion="2c356795f4ec8658bb6c57a4d2c957308ded0bf9"/>
-		<Metadata name="Configuration.ОбработкаЗагрузкиНакладныхExcell" id="8c2b9797-0505-48a2-b0d1-3f982c8337f6" configVersion="069167e95da78280d9b85dffef0cb610aed6565a"/>
+		<Metadata name="Configuration.ОбработкаЗагрузкиНакладныхExcell" id="8c2b9797-0505-48a2-b0d1-3f982c8337f6" configVersion="3b7ecbde4bb4423ad7319314a2cbe54fd6f72197"/>
 		<Metadata name="Constant.ВедетсяОтгрузкаБезПереходаПраваСобственности" id="ab146892-3567-421e-99b6-4a58960aadd9" configVersion="798f403ebbaa6118fcf173df3e013151aaa5f9de"/>
 		<Metadata name="Constant.ВедетсяУчетОсновныхСредств" id="2196233e-e798-4c53-bcc6-c60991b66ed3" configVersion="240b6846ba34f5a47706e90bc18ff345b8901f02"/>
 		<Metadata name="Constant.РазрешенаРаботаСНовостями" id="e74e6881-9eb0-42bf-a0d9-c3eb468b113b" configVersion="3e4c8b3508190a24722a28c9a0a0b4f75e44c078"/>
 		<Metadata name="DataProcessor.ВнешняяОбработка_ЗагрузкаНакладныхИзExcell" id="b614caec-15f4-40f6-8ab2-bbfcec2fc081" configVersion="78de44d655ab9d597d697482ab77a9042e7e830b"/>
 		<Metadata name="DataProcessor.ВнешняяОбработка_ЗагрузкаНакладныхИзExcell.Form.Форма" id="a141de1e-c40d-4237-a903-88eec5f2422e" configVersion="bb9ac28d6b05b8798be965d62a4d9df49aa64642"/>
-		<Metadata name="DataProcessor.ВнешняяОбработка_ЗагрузкаНакладныхИзExcell.Form.Форма.Form" id="a141de1e-c40d-4237-a903-88eec5f2422e.0" configVersion="133a935dd561a99c88f353437606a3e76af98714"/>
+		<Metadata name="DataProcessor.ВнешняяОбработка_ЗагрузкаНакладныхИзExcell.Form.Форма.Form" id="a141de1e-c40d-4237-a903-88eec5f2422e.0" configVersion="ed631ce70b612d2f457c0cff1eb9c10e78706e57"/>
 		<Metadata name="DataProcessor.ВнешняяОбработка_ЗагрузкаНакладныхИзExcell.Template.ExcelNative" id="27f47c31-38b5-43e0-be53-645ed0bee0e0" configVersion="a9e950bff7b113d4f66467b7399b58881e1a3ddc"/>
 		<Metadata name="DataProcessor.ВнешняяОбработка_ЗагрузкаНакладныхИзExcell.Template.ExcelNative.Template" id="27f47c31-38b5-43e0-be53-645ed0bee0e0.0" configVersion="50ebc1a48208e2ab9cb9977d8847acfd3c172d59"/>
 		<Metadata name="Document.РеализацияТоваровУслуг" id="63a41ba7-3598-4cf8-8712-721ed0958841" configVersion="066010f47fea13620f88f581bc3ffa1bd7f33c73"/>
