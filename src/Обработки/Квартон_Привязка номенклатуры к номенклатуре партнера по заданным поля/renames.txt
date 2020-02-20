@@ -1,0 +1,9 @@
+﻿07561880-1389-47b3-b7a3-db135a8ae4be.0\info-->und\07561880-1389-47b3-b7a3-db135a8ae4be.0\info
+07561880-1389-47b3-b7a3-db135a8ae4be.0\text-->ObjectModule.bsl
+3635506b-7ef2-4460-a0e7-7266b4fe5313-->und\3635506b-7ef2-4460-a0e7-7266b4fe5313
+a2f46bd5-b4f7-45bd-96f2-c3c74c3bf9b0-->und\a2f46bd5-b4f7-45bd-96f2-c3c74c3bf9b0
+a2f46bd5-b4f7-45bd-96f2-c3c74c3bf9b0.0-->und\a2f46bd5-b4f7-45bd-96f2-c3c74c3bf9b0.0
+copyinfo-->und\copyinfo
+root-->und\root
+version-->und\version
+versions-->und\versions
