@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОсновноеСредство</dataPath>
+				<field>ОсновноеСредство</field>
+				<appearance/>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЛицензионныйУчасток</dataPath>
+				<field>ЛицензионныйУчасток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Лицензионный участок</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance/>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВидОС</dataPath>
+				<field>ВидОС</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Вид ОС</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance/>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>МОЛ</dataPath>
+				<field>МОЛ</field>
+				<appearance/>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НомерСкважены</dataPath>
+				<field>НомерСкважены</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Номер скважены</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance/>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СостояниеУУ</dataPath>
+				<field>СостояниеУУ</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Состояние УУ</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance/>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Подразделение</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance/>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СостояниеБУ</dataPath>
+				<field>СостояниеБУ</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Состояние БУ</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance/>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГФУ</dataPath>
+				<field>ГФУ</field>
+				<appearance/>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтатьяРасходовНУ</dataPath>
+				<field>СтатьяРасходовНУ</field>
+				<appearance/>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтатьяРасходовАМ</dataPath>
+				<field>СтатьяРасходовАМ</field>
+				<appearance/>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<appearance/>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	ОбъектыЭксплуатации.Ссылка КАК Ссылка,
+	ОбъектыЭксплуатации.ЭтоГруппа КАК ЭтоГруппа,
+	ОбъектыЭксплуатации.ИнвентарныйНомер КАК ИнвентарныйНомер
+ПОМЕСТИТЬ ВТ_ОбъектОС
+ИЗ
+	Справочник.ОбъектыЭксплуатации КАК ОбъектыЭксплуатации
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ДополнительныеРеквизитыИСведения.Ссылка КАК Ссылка,
+	ДополнительныеРеквизитыИСведения.Имя КАК Имя
+ПОМЕСТИТЬ ВТ_ПВХ
+ИЗ
+	ПланВидовХарактеристик.ДополнительныеРеквизитыИСведения КАК ДополнительныеРеквизитыИСведения
+ГДЕ
+	ДополнительныеРеквизитыИСведения.Имя В(&amp;Имя)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ОбъектыЭксплуатацииДополнительныеРеквизиты.Ссылка КАК Ссылка,
+	ОбъектыЭксплуатацииДополнительныеРеквизиты.Значение КАК ВидОС,
+	НЕОПРЕДЕЛЕНО КАК ЛицензионныйУчасток,
+	НЕОПРЕДЕЛЕНО КАК НомерСкважены
+ПОМЕСТИТЬ ВТ_ОС_с_ДопРеквизитами
+ИЗ
+	Справочник.ОбъектыЭксплуатации.ДополнительныеРеквизиты КАК ОбъектыЭксплуатацииДополнительныеРеквизиты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_ПВХ КАК ВТ_ПВХ
+		ПО ОбъектыЭксплуатацииДополнительныеРеквизиты.Свойство = ВТ_ПВХ.Ссылка
+			И (ВТ_ПВХ.Имя = &amp;ИмяВидОС)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОбъектыЭксплуатацииДополнительныеРеквизиты.Ссылка,
+	НЕОПРЕДЕЛЕНО,
+	ОбъектыЭксплуатацииДополнительныеРеквизиты.Значение,
+	НЕОПРЕДЕЛЕНО
+ИЗ
+	Справочник.ОбъектыЭксплуатации.ДополнительныеРеквизиты КАК ОбъектыЭксплуатацииДополнительныеРеквизиты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_ПВХ КАК ВТ_ПВХ
+		ПО ОбъектыЭксплуатацииДополнительныеРеквизиты.Свойство = ВТ_ПВХ.Ссылка
+			И (ВТ_ПВХ.Имя = &amp;ИмяЛицензионныйУчасток)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ОбъектыЭксплуатацииДополнительныеРеквизиты.Ссылка,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	ОбъектыЭксплуатацииДополнительныеРеквизиты.Значение
+ИЗ
+	Справочник.ОбъектыЭксплуатации.ДополнительныеРеквизиты КАК ОбъектыЭксплуатацииДополнительныеРеквизиты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_ПВХ КАК ВТ_ПВХ
+		ПО ОбъектыЭксплуатацииДополнительныеРеквизиты.Свойство = ВТ_ПВХ.Ссылка
+			И (ВТ_ПВХ.Имя = &amp;ИмяНомерСкважины)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ОС_с_ДопРеквизитами.Ссылка КАК Ссылка,
+	МАКСИМУМ(ВТ_ОС_с_ДопРеквизитами.ВидОС) КАК ВидОС,
+	МАКСИМУМ(ВТ_ОС_с_ДопРеквизитами.ЛицензионныйУчасток) КАК ЛицензионныйУчасток,
+	МАКСИМУМ(ВТ_ОС_с_ДопРеквизитами.НомерСкважены) КАК НомерСкважены
+ПОМЕСТИТЬ ВТ_ОбъектОСДопРеквизиты
+ИЗ
+	ВТ_ОС_с_ДопРеквизитами КАК ВТ_ОС_с_ДопРеквизитами
+
+СГРУППИРОВАТЬ ПО
+	ВТ_ОС_с_ДопРеквизитами.Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ОбъектОС.Ссылка КАК ОсновноеСредство,
+	МестонахождениеОССрезПоследних.Местонахождение КАК Подразделение,
+	МестонахождениеОССрезПоследних.МОЛ КАК МОЛ,
+	ПорядокУчетаОССрезПоследних.ГруппаФинансовогоУчета КАК ГФУ,
+	ЕСТЬNULL(ВТ_ОбъектОСДопРеквизиты.ВидОС, НЕОПРЕДЕЛЕНО) КАК ВидОС,
+	ЕСТЬNULL(ВТ_ОбъектОСДопРеквизиты.ЛицензионныйУчасток, НЕОПРЕДЕЛЕНО) КАК ЛицензионныйУчасток,
+	ЕСТЬNULL(ВТ_ОбъектОСДопРеквизиты.НомерСкважены, НЕОПРЕДЕЛЕНО) КАК НомерСкважены,
+	ВЫБОР
+		КОГДА НЕ ВТ_ОбъектОС.ЭтоГруппа
+			ТОГДА ЕСТЬNULL(ПорядокУчетаОСБУСрезПоследних.Состояние, ЗНАЧЕНИЕ(Перечисление.СостоянияОС.НеПринятоКУчету))
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.СостоянияОС.ПустаяСсылка)
+	КОНЕЦ КАК СостояниеБУ,
+	ВЫБОР
+		КОГДА НЕ ВТ_ОбъектОС.ЭтоГруппа
+			ТОГДА ЕСТЬNULL(ПорядокУчетаОСУУСрезПоследних.Состояние, ЗНАЧЕНИЕ(Перечисление.СостоянияОС.НеПринятоКУчету))
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.СостоянияОС.ПустаяСсылка)
+	КОНЕЦ КАК СостояниеУУ,
+	тн_СоответствиеСтатейРасходовОтГФУИВидаОССрезПоследних.СтатьяРасходовНУ КАК СтатьяРасходовНУ,
+	тн_СоответствиеСтатейРасходовОтГФУИВидаОССрезПоследних.СтатьяРасходовАМ КАК СтатьяРасходовАМ
+ИЗ
+	ВТ_ОбъектОС КАК ВТ_ОбъектОС
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ОбъектОСДопРеквизиты КАК ВТ_ОбъектОСДопРеквизиты
+		ПО ВТ_ОбъектОС.Ссылка = ВТ_ОбъектОСДопРеквизиты.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МестонахождениеОС.СрезПоследних(
+				&amp;Дата,
+				(ОсновноеСредство, Организация) В
+					(ВЫБРАТЬ
+						вт_объектОС.Ссылка,
+						&amp;Организация
+					ИЗ
+						ВТ_ОбъектОС КАК вт_объектОС)) КАК МестонахождениеОССрезПоследних
+		ПО ВТ_ОбъектОС.Ссылка = МестонахождениеОССрезПоследних.ОсновноеСредство
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПорядокУчетаОС.СрезПоследних(
+				&amp;Дата,
+				ОсновноеСредство В
+					(ВЫБРАТЬ
+						вт_объектос.Ссылка
+					ИЗ
+						ВТ_ОбъектОС КАК вт_объектос)) КАК ПорядокУчетаОССрезПоследних
+		ПО ВТ_ОбъектОС.Ссылка = ПорядокУчетаОССрезПоследних.ОсновноеСредство
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПорядокУчетаОСУУ.СрезПоследних(
+				&amp;Дата,
+				(ОсновноеСредство, Организация) В
+					(ВЫБРАТЬ
+						вт_объектОС.Ссылка,
+						&amp;Организация
+					ИЗ
+						ВТ_ОбъектОС КАК вт_объектОС)) КАК ПорядокУчетаОСУУСрезПоследних
+		ПО ВТ_ОбъектОС.Ссылка = ПорядокУчетаОСУУСрезПоследних.ОсновноеСредство
+			И (МестонахождениеОССрезПоследних.Организация = ПорядокУчетаОСУУСрезПоследних.Организация)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПорядокУчетаОСБУ.СрезПоследних(
+				&amp;Дата,
+				(ОсновноеСредство, Организация) В
+					(ВЫБРАТЬ
+						вт_объектОС.Ссылка,
+						&amp;Организация
+					ИЗ
+						ВТ_ОбъектОС КАК вт_объектОС)) КАК ПорядокУчетаОСБУСрезПоследних
+		ПО ВТ_ОбъектОС.Ссылка = ПорядокУчетаОСБУСрезПоследних.ОсновноеСредство
+			И (МестонахождениеОССрезПоследних.Организация = ПорядокУчетаОСБУСрезПоследних.Организация)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.тн_СоответствиеСтатейРасходовОтГФУИВидаОС.СрезПоследних(&amp;Дата, ) КАК тн_СоответствиеСтатейРасходовОтГФУИВидаОССрезПоследних
+		ПО (ПорядокУчетаОССрезПоследних.ГруппаФинансовогоУчета = тн_СоответствиеСтатейРасходовОтГФУИВидаОССрезПоследних.ГФУ)
+			И (ВТ_ОбъектОСДопРеквизиты.ВидОС = тн_СоответствиеСтатейРасходовОтГФУИВидаОССрезПоследних.ВидОС)
+ГДЕ
+	(ЕСТЬNULL(ПорядокУчетаОСБУСрезПоследних.Состояние, ЗНАЧЕНИЕ(Перечисление.СостоянияОС.НеПринятоКУчету)) В (&amp;Состояние)
+			ИЛИ ЕСТЬNULL(ПорядокУчетаОСУУСрезПоследних.Состояние, ЗНАЧЕНИЕ(Перечисление.СостоянияОС.НеПринятоКУчету)) В (&amp;Состояние))</query>
+		</dataSet>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Имя</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Имя</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+				<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<Length>100</Length>
+					<AllowedLength>Variable</AllowedLength>
+				</StringQualifiers>
+			</valueType>
+			<value xsi:type="xs:string"/>
+			<useRestriction>true</useRestriction>
+			<valueListAllowed>true</valueListAllowed>
+		</parameter>
+		<parameter>
+			<name>ИмяВидОС</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Имя вид ОС</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+				<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<Length>0</Length>
+					<AllowedLength>Variable</AllowedLength>
+				</StringQualifiers>
+			</valueType>
+			<value xsi:type="xs:string"/>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>ИмяЛицензионныйУчасток</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Имя лицензионный участок</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+				<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<Length>0</Length>
+					<AllowedLength>Variable</AllowedLength>
+				</StringQualifiers>
+			</valueType>
+			<value xsi:type="xs:string"/>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>ИмяНомерСкважины</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Имя номер скважины</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+				<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<Length>0</Length>
+					<AllowedLength>Variable</AllowedLength>
+				</StringQualifiers>
+			</valueType>
+			<value xsi:type="xs:string"/>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Организация</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Организация</d4p1:content>
+				</d4p1:item>
+			</title>
+			<value xsi:nil="true"/>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Дата</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Состояние</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Состояние</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:EnumRef.СостоянияОС</Type>
+			</valueType>
+			<value xsi:nil="true"/>
+			<useRestriction>true</useRestriction>
+			<valueListAllowed>true</valueListAllowed>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Основной</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="xs:string">Основной</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>ОсновноеСредство.Код</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ОсновноеСредство.ИнвентарныйНомер</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ОсновноеСредство</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Подразделение</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>МОЛ</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ВидОС</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ГФУ</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ЛицензионныйУчасток</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>НомерСкважены</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СтатьяРасходовАМ</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СтатьяРасходовНУ</field>
+		</item>
+	</selection>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Состояние</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+	</dataParameters>
+	<outputParameters/>
+	<item xsi:type="StructureItemGroup">
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<outputParameters/>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
